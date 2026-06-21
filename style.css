@@ -1532,3 +1532,40 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-order:hover {
   box-shadow: 0 4px 22px rgba(45,184,75,0.32) !important;
 }
+
+/* ── Navbar text wordmark (replaces duplicate logo image) ─────── */
+.nav-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.nav-wordmark-t {
+  color: rgba(255,255,255,0.92);
+}
+.nav-wordmark-d {
+  color: #8fb89a;
+  font-style: italic;
+}
+
+/* ── Brighter, warmer motto ──────────────────────────────────── */
+.hero-logo-motto {
+  color: rgba(201,168,106,0.75) !important; /* warm gold, matches headline accent */
+  font-size: 0.85rem !important;
+}
+
+/* ── Show nav logo only after scroll ─────────────────────────── */
+.nav-wordmark {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+.navbar.scrolled .nav-wordmark {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
