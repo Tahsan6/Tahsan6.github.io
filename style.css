@@ -1569,3 +1569,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   visibility: visible;
   transform: translateY(0);
 }
+
+/* ── Headline size + balanced color tweak ───────────────────── */
+.hero-headline {
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem) !important;
+  line-height: 1.22 !important;
+}
+.hero-headline em {
+  color: #d4af6a !important; /* slightly richer gold, not too muted */
+}
+.hero-headline .highlight {
+  color: #5fa876 !important; /* deeper, more confident green */
+}
+.hero-headline .highlight::after {
+  background: #5fa876 !important;
+  opacity: 0.7;
+}
