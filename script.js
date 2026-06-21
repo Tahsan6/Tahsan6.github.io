@@ -243,3 +243,115 @@
   }
 
 })();
+
+/**
+ * ── Lightbox gallery ──────────────────────────────────────────
+ * Each category maps to an array of photo URLs.
+ * Replace the placeholder arrays below with real photo paths
+ * once uploaded, e.g. 'images/business-card-1.jpg'
+ */
+(function () {
+  'use strict';
+
+  const galleryData = {
+    'business-card': [],
+    'calendar': [],
+    'brochure': [],
+    'diary': [],
+    'letterhead': [],
+    'envelope': [],
+    'leaflet': [],
+    'banner': []
+  };
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  if (!lightbox) return;
+
+  let currentCat = null;
+  let currentIndex = 0;
+
+  function openLightbox(cat) {
+    const photos = galleryData[cat];
+    if (!photos || photos.length === 0) return;
+    currentCat = cat;
+    currentIndex = 0;
+    showPhoto();
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lightboxImg.classList.remove('zoomed');
+  }
+
+  function showPhoto() {
+    const photos = galleryData[currentCat];
+    lightboxImg.src = photos[currentIndex];
+    lightboxImg.classList.remove('zoomed');
+    lightboxCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+  }
+
+  function nextPhoto() {
+    const photos = galleryData[currentCat];
+    currentIndex = (currentIndex + 1) % photos.length;
+    showPhoto();
+  }
+
+  function prevPhoto() {
+    const photos = galleryData[currentCat];
+    currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+    showPhoto();
+  }
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const cat = item.dataset.cat;
+      openLightbox(cat);
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxNext.addEventListener('click', nextPhoto);
+  lightboxPrev.addEventListener('click', prevPhoto);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextPhoto();
+    if (e.key === 'ArrowLeft') prevPhoto();
+  });
+
+  lightboxImg.addEventListener('click', () => {
+    lightboxImg.classList.toggle('zoomed');
+  });
+
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 50 && !lightboxImg.classList.contains('zoomed')) {
+      if (diff > 0) prevPhoto();
+      else nextPhoto();
+    }
+  }, { passive: true });
+
+})();
