@@ -254,7 +254,7 @@
   'use strict';
 
   const galleryData = {
-    'business-card': [],
+    'business-card': ['images/business-card-1.jpg', 'images/business-card-2.jpg', 'images/business-card-3.jpg', 'images/business-card-4.jpg'],
     'calendar': [],
     'brochure': [],
     'diary': [],
