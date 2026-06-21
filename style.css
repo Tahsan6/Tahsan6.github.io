@@ -1585,3 +1585,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: #5fa876 !important;
   opacity: 0.7;
 }
+
+/* ── Simple clean headline — no italic, no underline ────────── */
+.hero-headline {
+  font-family: 'Inter', 'Arial', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+  color: rgba(255,255,255,0.92) !important;
+}
+.hero-headline em {
+  font-style: normal !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,0.92) !important;
+}
+.hero-headline .highlight {
+  font-style: normal !important;
+  font-weight: 700 !important;
+  color: #5fa876 !important;
+}
+.hero-headline .highlight::after {
+  display: none !important;
+}
