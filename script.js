@@ -254,14 +254,53 @@
   'use strict';
 
   const galleryData = {
-    'business-card': ['images/business-card-1.jpg', 'images/business-card-2.jpg', 'images/business-card-3.jpg', 'images/business-card-4.jpg'],
-    'calendar': [],
-    'brochure': [],
-    'diary': [],
-    'letterhead': [],
-    'envelope': [],
-    'leaflet': [],
-    'banner': []
+    'business-card': [
+      'images/mockups/business-card/visiting%20card%201.webp',
+      'images/mockups/business-card/visiting%20card%202.webp',
+      'images/mockups/business-card/visiting%20card%203.webp',
+      'images/mockups/business-card/visiting%20card%204.webp'
+    ],
+    'calendar': [
+      'images/mockups/calendar/desk%20calendar.webp',
+      'images/mockups/calendar/wall%20calendar%201.webp',
+      'images/mockups/calendar/wall%20calendar%202.webp',
+      'images/mockups/calendar/wall%20calendar%203.webp',
+      'images/mockups/calendar/wall%20calendar%204.webp',
+      'images/mockups/calendar/wall%20calendar%205.webp',
+      'images/mockups/calendar/wall%20calendar%206.webp'
+    ],
+    'brochure': [
+      'images/mockups/brochure/brochure%201.webp',
+      'images/mockups/brochure/brochure%202.webp',
+      'images/mockups/brochure/brochure%203.webp',
+      'images/mockups/brochure/brochure%204.webp',
+      'images/mockups/brochure/brochure%205.webp'
+    ],
+    'diary': [
+      'images/mockups/diaries/diary%201.webp'
+    ],
+    'letterhead': [
+      'images/mockups/pads/letterhead%20pad%201.webp',
+      'images/mockups/pads/letterhead%20pad%202.webp',
+      'images/mockups/pads/letterhead%20pad%203.webp',
+      'images/mockups/pads/letterhead%20pad%204.webp',
+      'images/mockups/pads/letterhead%20pad%205.webp',
+      'images/mockups/pads/letterhead%20pad%206.webp',
+      'images/mockups/pads/letterhead%20pad%207.webp'
+    ],
+    'envelope': [
+      'images/mockups/envelope/Envelope%201.webp',
+      'images/mockups/envelope/Envelope%202.webp',
+      'images/mockups/envelope/Envelope%203.webp'
+    ],
+    'leaflet': [
+      'images/mockups/leaflet/leaflet%201.webp',
+      'images/mockups/leaflet/leaflet%202.webp'
+    ],
+    'banner': [
+      'images/mockups/banner/banner%201.webp',
+      'images/mockups/banner/banner%202.webp'
+    ]
   };
 
   const lightbox = document.getElementById('lightbox');

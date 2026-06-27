@@ -879,6 +879,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: center;
   transition: var(--transition);
 }
+.gallery-thumb-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.42s ease;
+}
+.gallery-item:hover .gallery-thumb-photo img { transform: scale(1.06); }
 .gallery-icon {
   font-size: 3.5rem;
   color: rgba(255,255,255,.45);
