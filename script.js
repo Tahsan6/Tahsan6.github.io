@@ -207,6 +207,7 @@
     'Flyers', 'DVD Covers', 'Labels', 'Invitation Cards'
   ];
   const cycleText = document.getElementById('cycleText');
+  const cycleTextMobile = document.getElementById('cycleTextMobile');
   const cycleDots = document.getElementById('cycleDots');
 
   if (cycleText && cycleDots) {
@@ -225,12 +226,14 @@
 
     setInterval(() => {
       cycleText.style.opacity = '0';
+      if (cycleTextMobile) { cycleTextMobile.style.opacity = '0'; cycleTextMobile.style.transform = 'translateY(12px)'; }
       cycleText.style.transform = 'translateY(12px)';
       dots[current].classList.remove('active');
       current = (current + 1) % services.length;
 
       setTimeout(() => {
         cycleText.textContent = services[current];
+        if (cycleTextMobile) { cycleTextMobile.textContent = services[current]; cycleTextMobile.style.color = colors[current % colors.length]; cycleTextMobile.style.opacity = '1'; cycleTextMobile.style.transform = 'translateY(0)'; }
         cycleText.style.color = colors[current % colors.length];
         cycleText.style.opacity = '1';
         cycleText.style.transform = 'translateY(0)';
