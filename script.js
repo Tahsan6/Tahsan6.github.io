@@ -157,22 +157,19 @@
 
   $$('.reveal').forEach(el => revealObserver.observe(el));
 
-  /* ── Section eyebrow / title reveal ──────────────────────── */
-  $$('.section-header').forEach(header => {
-    header.style.opacity = '0';
-    header.style.transform = 'translateY(24px)';
-    header.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-    new IntersectionObserver(
-      ([entry]) => {
+  /* ── Section header reveal (class-based) ─────────────────── */
+  const headerObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          header.style.opacity = '1';
-          header.style.transform = 'translateY(0)';
+          entry.target.classList.add('visible');
+          headerObserver.unobserve(entry.target);
         }
-      },
-      { threshold: 0.2 }
-    ).observe(header);
-  });
+      });
+    },
+    { threshold: 0.15 }
+  );
+  $$('.section-header').forEach(h => headerObserver.observe(h));
 
   /* ── Service card colour accent on hover (extra polish) ────── */
   $$('.service-card').forEach(card => {
