@@ -753,12 +753,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .stat { display: flex; flex-direction: column; gap: 6px; }
 .stat-num {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 3.2rem;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--charcoal);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
 }
 .stat-num sup {
   font-size: 1.1rem;
@@ -1283,9 +1283,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
 
-  /* Hero: on tablet, reposition so the building doesn't dominate */
+  /* Hero: center the artwork so full image is visible */
   .hero {
-    background-position: 60% center;
+    background-position: center center;
     background-size: cover;
   }
   /* No overlay on tablet either */
@@ -1331,7 +1331,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .container { width: min(var(--container), 100% - 32px); }
   .logo-img  { height: 36px; }
 
-  /* Hero — mobile: cover keeps the full artwork visible without zooming in */
+  /* Hero — keep full artwork visible */
   .hero {
     background-size: cover;
     background-position: center center;
@@ -1340,10 +1340,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero::before { display: none; }
 
   .hero-logo-img  { max-width: 200px !important; }
-  .hero-headline  { font-size: clamp(2rem, 8vw, 2.8rem) !important; }
-  .hero-sub       { font-size: 0.95rem; }
+  .hero-headline  { font-size: clamp(1.9rem, 7.5vw, 2.6rem) !important; }
+  .hero-sub       { font-size: 0.92rem; }
   .hero-print-tag { font-size: 0.65rem; padding: 6px 12px; }
 
+  /* Buttons — compact, not full width */
+  .btn-lg { padding: 11px 24px; font-size: 0.88rem; border-radius: 10px; }
+  .btn-order { font-size: 0.88rem !important; padding: 11px 24px !important; }
+  .hero-ctas { gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  /* Stats bar */
   .hero-stats {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -1356,11 +1362,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero-stat-num   { font-size: 1.15rem !important; }
   .hero-stat-label { font-size: 0.60rem !important; }
   .hero-stat-divider { height: 26px; display: block !important; }
-
-  /* Buttons */
-  .btn-lg { padding: 14px 30px; font-size: 0.95rem; }
-  .btn-order { font-size: 0.95rem !important; padding: 14px 30px !important; }
-  .hero-ctas { gap: 10px; }
 
   /* Services */
   .services-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -1413,18 +1414,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
 
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  /* Keep stats as a tight horizontal row on small phones */
+
+  /* Stats — tight horizontal row */
   .hero-stats   { flex-direction: row !important; flex-wrap: nowrap !important; }
   .hero-stat    { padding: 0 8px !important; }
   .hero-stat-num { font-size: 1rem !important; }
   .hero-stat-label { font-size: 0.55rem !important; letter-spacing: 0.05em !important; }
   .hero-stat-divider { height: 20px; display: block !important; }
-  .hero-headline { font-size: clamp(1.8rem, 8.5vw, 2.4rem) !important; }
-  .services-grid { grid-template-columns: 1fr; }
-  .contact-grid  { grid-template-columns: 1fr; }
-  .logo-img      { height: 32px; }
-  .hero-ctas     { flex-direction: column; align-items: center; gap: 10px; }
-  .btn-lg        { width: 100%; justify-content: center; }
+
+  .hero-headline { font-size: clamp(1.7rem, 8vw, 2.2rem) !important; }
+  .logo-img { height: 32px; }
+
+  /* Buttons — side by side, not full width */
+  .hero-ctas { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .btn-lg    { padding: 10px 20px; font-size: 0.84rem; width: auto; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
