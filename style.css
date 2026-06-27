@@ -350,7 +350,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
-  width: 100%;
   padding-block: clamp(48px, 8vw, 72px) clamp(24px, 4vw, 40px);
 }
 
